@@ -128,6 +128,7 @@ export default {
         if (status == 201) {
           commit("SET_LOADING", false, { root: true });
           commit("MODAL", false, { root: true });
+          alert(`${data.message}`);
         }
       } catch (error) {
         commit("SET_LOADING", false, { root: true });
@@ -150,6 +151,7 @@ export default {
         if (status == 200) {
           commit("SET_LOADING", false, { root: true });
           commit("MODAL", false, { root: true });
+          alert(`${data.message}`);
         }
       } catch (error) {
         commit("SET_LOADING", false, { root: true });

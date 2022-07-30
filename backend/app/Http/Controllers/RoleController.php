@@ -8,13 +8,27 @@ use App\Http\Requests\RoleRequest;
 
 class RoleController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $result = Role::paginate();
-        return [
-            'roles' => $result,
-        ];
+
+        $length = $request->length;
+        $dir = $request->dir;
+        $searchValue = $request->search;
+
+        $query = Role::orderBy('id', $dir);
+
+        if ($searchValue) {
+            $query->where(function ($query) use ($searchValue) {
+                $query->where('name', 'like', '%' . $searchValue . '%')
+                    ->orWhere('description', 'like', '%' . $searchValue . '%');
+            });
+        }
+
+        $finalResults = $query->paginate($length);
+
+        return $finalResults;
     }
+
     public function create(RoleRequest $request)
     {
         $role = new Role([
@@ -33,7 +47,7 @@ class RoleController extends Controller
             'message' => 'Role successfully deleted.'
         ], 201);
     }
-    public function update(Request $request)
+    public function update(RoleRequest $request)
     {
         Role::whereId($request->id)->update([
             'name' => $request->name,

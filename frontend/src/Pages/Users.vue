@@ -200,7 +200,7 @@ onMounted(() => {
           type="text"
           id="table-search"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 block w-80 pl-10 p-2.5"
-          placeholder="Search for item"
+          placeholder="Search for user"
         />
       </div>
       <div class="flex gap-2 items-center text-gray-600">
@@ -222,7 +222,7 @@ onMounted(() => {
           <th scope="col">ID</th>
           <th scope="col">Name</th>
           <th scope="col">Email</th>
-          <th scope="col">Email Verified</th>
+          <th scope="col">Email Verified AT</th>
           <th scope="col">Role</th>
           <th scope="col">
             <span class="sr-only">Edit</span>

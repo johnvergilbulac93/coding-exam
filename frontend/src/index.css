@@ -31,3 +31,8 @@ td:first-child {
 .badge-secondary {
   @apply text-xs font-semibold inline-block py-1 px-2 rounded-full text-gray-600 bg-gray-200 uppercase;
 }
+
+.router-link-active,
+.router-link-exact-active {
+  @apply text-indigo-500;
+}

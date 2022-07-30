@@ -67,23 +67,30 @@ class UserController extends Controller
                 'password' => ['required', 'min:8'],
                 'password_confirmation' =>  ['required_with:password', 'same:password', 'min:8']
             ]);
+
+            $user = array(
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'role_id' => $request->role
+            );
+        } else {
+            $request->validate([
+                'name' => ['required', 'string'],
+                'email' => ['required', 'email'],
+                'role' => ['required'],
+            ]);
+            $user = array(
+                'name' => $request->name,
+                'email' => $request->email,
+                'role_id' => $request->role
+            );
         }
-        $request->validate([
-            'name' => ['required', 'string'],
-            'email' => ['required', 'email'],
-            'role' => ['required'],
-        ]);
 
-
-        User::whereId($request->id)->whereId($request->id)->update([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role_id' => $request->role
-        ]);
+        User::whereId($request->id)->update($user);
 
         return response()->json([
-            'message' => ['User successfully updated.']
+            'message' => 'User successfully updated.'
         ], 200);
     }
 }

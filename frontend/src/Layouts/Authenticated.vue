@@ -64,7 +64,9 @@ onMounted(() => {
                         type="button"
                         class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150"
                       >
-                        <span v-if="user"> {{ user.name }}</span>
+                        <span v-if="user" class="capitalize">
+                          {{ user.name }}</span
+                        >
 
                         <svg
                           class="ml-2 -mr-0.5 h-4 w-4"
@@ -141,8 +143,14 @@ onMounted(() => {
           class="sm:hidden"
         >
           <div class="pt-2 pb-3 space-y-1">
-            <ResponsiveNavLink> User </ResponsiveNavLink>
-            <ResponsiveNavLink> Role </ResponsiveNavLink>
+            <span
+              class="block pl-3 pr-4 py-2 border-l-4 cursor-pointer border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"
+              >User</span
+            >
+            <span
+              class="block pl-3 pr-4 py-2 border-l-4 cursor-pointer border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"
+              >Role</span
+            >
           </div>
 
           <!-- Responsive Settings Options -->
@@ -152,14 +160,17 @@ onMounted(() => {
                 <span v-if="user"> {{ user.email }}</span>
               </div>
               <div class="font-medium text-sm text-gray-500">
-                <span v-if="user"> {{ user.name }}</span>
+                <span v-if="user" class="capitalize"> {{ user.name }}</span>
               </div>
             </div>
 
             <div class="mt-3 space-y-1">
-              <ResponsiveNavLink @click="handleLogout">
-                Log Out
-              </ResponsiveNavLink>
+              <span
+                @click="handleLogout"
+                class="block pl-3 pr-4 py-2 border-l-4 cursor-pointer border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out"
+              >
+                Log Out</span
+              >
             </div>
           </div>
         </div>

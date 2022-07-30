@@ -34,15 +34,16 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/',   [UserController::class, 'create']);
         Route::delete('/{id}',   [UserController::class, 'delete']);
         Route::patch('/',   [UserController::class, 'update']);
+
         Route::post('/logout',   [LoginController::class, 'logout']);
     });
-});
+    Route::prefix('role')->group(function () {
 
+        Route::get('/',   [RoleController::class, 'index']);
+        Route::post('/',   [RoleController::class, 'create']);
+        Route::delete('/{id}',   [RoleController::class, 'delete']);
+        Route::patch('/',   [RoleController::class, 'update']);
 
-Route::group(['prefix' => 'role'], function () {
-    Route::get('/',   [RoleController::class, 'index']);
-    Route::post('/',   [RoleController::class, 'create']);
-    Route::delete('/{id}',   [RoleController::class, 'delete']);
-    Route::post('/',   [RoleController::class, 'update']);
-    Route::get('/show',   [RoleController::class, 'show_roles']);
+        Route::get('/show',   [RoleController::class, 'show_roles']);
+    });
 });
