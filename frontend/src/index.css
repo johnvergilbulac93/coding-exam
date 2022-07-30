@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+table {
+  @apply w-full text-sm text-left text-gray-500;
+}
+
+table thead {
+  @apply text-xs text-gray-700 uppercase bg-gray-50;
+}
+
+th {
+  @apply px-6 py-3;
+}
+tr {
+  @apply bg-white border-b;
+}
+td {
+  @apply px-6 py-4;
+}
+td:first-child {
+  @apply font-medium whitespace-nowrap;
+}
+.badge-primary {
+  @apply text-xs font-semibold inline-block py-1 px-2 rounded-full text-cyan-600 bg-cyan-200 uppercase;
+}
+.badge-success {
+  @apply text-xs font-semibold inline-block py-1 px-2 rounded-full text-emerald-600 bg-emerald-200 uppercase;
+}
+.badge-secondary {
+  @apply text-xs font-semibold inline-block py-1 px-2 rounded-full text-gray-600 bg-gray-200 uppercase;
+}
