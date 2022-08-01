@@ -29,7 +29,7 @@ const store = createStore({
     SET_ERRORS(state, payload) {
       state.errors = payload;
     },
-    CLEAR_ERRORS(state, payload) {
+    CLEAR_ERRORS(state) {
       state.errors = {};
     },
     SET_TOKEN(state, payload) {
