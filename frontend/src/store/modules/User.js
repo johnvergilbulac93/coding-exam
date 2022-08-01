@@ -26,7 +26,6 @@ export default {
             root: true,
           });
           router.push("/login");
-          alert(`${data.message}`);
         }
       } catch (error) {
         commit("SET_LOADING", false, { root: true });
