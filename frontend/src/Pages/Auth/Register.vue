@@ -34,13 +34,12 @@ const handleSubmit = () => {
     password: form.password,
     password_confirmation: form.password_confirmation,
   };
-  store.dispatch("User/register", payload).then(() => {
-    handleReset();
-  });
+  store.dispatch("User/register", payload);
 };
 
 onMounted(() => {
   store.commit("CLEAR_ERRORS");
+  handleReset();
 });
 </script>
 <template>

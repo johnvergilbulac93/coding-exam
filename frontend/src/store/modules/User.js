@@ -5,7 +5,7 @@ export default {
   state: {
     title: "User Module",
     user: null,
-    users: [],
+    users: {},
   },
   mutations: {
     SET_AUTH_USER(state, payload) {

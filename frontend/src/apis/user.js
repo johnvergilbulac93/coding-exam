@@ -14,7 +14,7 @@ export default {
     return Api().post("/user/logout");
   },
   show(page, filter) {
-    return Api().get(`/user?page${page}`, { params: filter });
+    return Api().get(`/user?page=${page}`, { params: filter });
   },
   create(form) {
     return Api().post("/user", form);
